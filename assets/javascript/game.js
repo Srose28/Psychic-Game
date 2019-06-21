@@ -1,28 +1,20 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 $(document).ready(function() {
-
-    var correctLetter = 
-    var incorrectLetter =
-    var guess =
-
-    if (correctLetter) {
-        
-    }
-
-    if (incorrectLetter) = {
-        
-    }
-}
-
-function makeid(length) {
-    var result           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    var wins = 0
+    var loss = 0
+    var userGuessList = []
+
+    var computerGuess= characters.charAt(Math.floor(Math.random() * characters.length));
+   
+
+    document.onkeydown = function(event) {
+        var userentry = event.key.toUpperCase()
+        userGuessList.push(userentry)
+        // console.log("User Entry",userentry,"Computer Guess",computerGuess);
+        document.getElementById("userGuestList").innerHTML = userentry
+        if (userentry === computerGuess){ wins++;}else{loss++}
+
+
+
     }
-    return result;
- }
- 
- console.log(makeid(i));
+});
